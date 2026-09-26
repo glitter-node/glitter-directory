@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "layout_name": "home",
+  "extends": "_user_base",
+  "meta": { "title": "$t:discovery.page_title", "description": "$t:discovery.description" },
+  "data_sources": [{ "id": "directories", "label_key": "$t:discovery.data_source", "type": "api", "endpoint": "/api/modules/sirsoft-board/boards", "method": "GET", "params": {}, "auto_fetch": true, "auth_mode": "optional", "loading_strategy": "progressive", "refetchOnMount": true }],
+  "slots": { "content": [{ "type": "basic", "name": "Section", "props": { "className": "gd-container gd-shell" }, "children": [
+    { "type": "basic", "name": "P", "props": { "className": "gd-eyebrow" }, "text": "$t:discovery.kicker" },
+    { "type": "basic", "name": "H1", "props": { "className": "gd-page-title" }, "text": "$t:discovery.title" },
+    { "type": "basic", "name": "P", "props": { "className": "gd-lede" }, "text": "$t:discovery.intro" },
+    { "type": "basic", "name": "Div", "if": "{{directories?.loading}}", "props": { "className": "gd-state", "role": "status", "aria-live": "polite" }, "children": [{ "type": "basic", "name": "P", "text": "$t:state.loading" }] },
+    { "type": "basic", "name": "Div", "if": "{{directories?.error}}", "props": { "className": "gd-state gd-error", "role": "alert" }, "children": [{ "type": "basic", "name": "P", "text": "$t:state.error" }, { "type": "basic", "name": "Button", "props": { "type": "button", "className": "gd-link-button" }, "actions": [{ "type": "click", "handler": "refetchDataSource", "params": { "dataSourceId": "directories" } }], "text": "$t:state.retry" }] },
+    { "type": "basic", "name": "Section", "if": "{{!directories?.loading && !directories?.error && (directories?.data?.length ?? 0) > 0}}", "props": { "className": "gd-section", "aria-labelledby": "gd-directory-list-title" }, "children": [{ "type": "basic", "name": "H2", "props": { "id": "gd-directory-list-title", "className": "gd-section-title" }, "text": "$t:discovery.browse_title" }, { "type": "basic", "name": "Div", "props": { "className": "gd-directory-grid", "role": "list", "aria-label": "$t:discovery.list_label" }, "children": [{ "type": "basic", "name": "A", "iteration": { "source": "{{directories?.data ?? []}}", "item_var": "directory", "index_var": "idx" }, "props": { "className": "gd-directory-card", "role": "listitem", "href": "/directory/{{directory.slug}}" }, "children": [{ "type": "basic", "name": "Span", "props": { "className": "gd-card-index", "aria-hidden": "true" }, "text": "{{idx + 1}}" }, { "type": "basic", "name": "H3", "text": "{{raw:directory.name}}" }, { "type": "basic", "name": "P", "if": "{{directory.description}}", "text": "{{raw:directory.description}}" }, { "type": "basic", "name": "Span", "props": { "className": "gd-card-count" }, "text": "$t:discovery.listing_count|count={{directory.posts_count ?? 0}}" }] }] }] },
+    { "type": "basic", "name": "Div", "if": "{{!directories?.loading && !directories?.error && (directories?.data?.length ?? 0) === 0}}", "props": { "className": "gd-empty-card" }, "children": [{ "type": "basic", "name": "H2", "props": { "className": "gd-empty-title" }, "text": "$t:discovery.empty_title" }, { "type": "basic", "name": "P", "text": "$t:discovery.empty_body" }] }
+  ] }] }
+}

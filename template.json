@@ -1,0 +1,27 @@
+{
+  "identifier": "glitter-directory",
+  "vendor": "Glitter.kr",
+  "name": { "ko": "Glitter Directory", "en": "Glitter Directory" },
+  "version": "0.10.0",
+  "license": "MIT",
+  "copyright": "Glitter.kr",
+  "description": {
+    "ko": "그누보드7 게시판 콘텐츠를 디렉터리와 카탈로그 목록으로 표현하는 범용 사용자 템플릿",
+    "en": "A general-purpose user template for presenting Gnuboard7 content as directories and catalogs"
+  },
+  "type": "user",
+  "category": "directory",
+  "locales": ["ko", "en"],
+  "author": { "name": "Glitter.kr", "email": "admin@glitter.kr", "url": "https://glitter.kr" },
+  "release_date": "2026-09-25",
+  "g7_version": ">=7.0.11",
+  "dependencies": { "modules": { "sirsoft-board": ">=1.1.2" }, "plugins": {} },
+  "error_config": { "layouts": { "403": "errors/403", "404": "errors/404", "500": "errors/500" } },
+  "assets": { "css": ["dist/css/components.css"], "js": ["dist/js/components.iife.js"], "fonts": [], "images": [] },
+  "components": {
+    "basic": ["a", "article", "button", "div", "footer", "form", "h1", "h2", "h3", "header", "input", "label", "li", "main", "nav", "p", "section", "span", "time", "ul"],
+    "composite": ["directory-header", "directory-pagination", "listing-card", "sanitized-content"],
+    "layout": []
+  },
+  "features": { "dark_mode": true, "responsive": true, "multi_language": true, "multi_currency": false }
+}

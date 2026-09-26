@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "description": "Glitter Directory public browsing routes",
+  "routes": [
+    { "path": "/login", "layout": "auth/login", "guest_only": true, "meta": { "title": "$t:auth_page.login_title" } },
+    { "path": "/register", "layout": "auth/register", "guest_only": true, "meta": { "title": "$t:auth_page.register_title" } },
+    { "path": "/account", "layout": "account/index", "auth_required": true, "meta": { "title": "$t:account_page.title" } },
+    { "path": "/", "layout": "home", "auth_required": false, "meta": { "title": "$t:discovery.page_title" } },
+    { "path": "/directory", "layout": "home", "auth_required": false, "meta": { "title": "$t:discovery.page_title" } },
+    { "path": "/directory/:slug", "layout": "directory/index", "auth_required": false, "meta": { "title": "$t:directory.page_title" } },
+    { "path": "/directory/:slug/listings/:id", "layout": "directory/detail", "auth_required": false, "meta": { "title": "$t:detail.page_title" } }
+  ]
+}

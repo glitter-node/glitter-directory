@@ -1,0 +1,14 @@
+{
+  "name": "@glitter/glitter-directory-template",
+  "version": "0.10.0",
+  "description": "Glitter Directory Gnuboard 7 user template",
+  "author": "Glitter.kr",
+  "license": "MIT",
+  "keywords": ["g7", "directory", "catalog", "listing"],
+  "type": "module",
+  "main": "dist/js/components.iife.js",
+  "scripts": { "build": "vite build", "build:watch": "vite build --watch", "type-check": "tsc --noEmit", "test": "vitest", "test:run": "vitest run" },
+  "dependencies": { "dompurify": "3.3.1" },
+  "peerDependencies": { "react": "^19.0.0", "react-dom": "^19.0.0" },
+  "devDependencies": { "@types/react": "^19.0.0", "@types/react-dom": "^19.0.0", "typescript": "^5.7.0", "vite": "^7.0.4", "vitest": "^4.0.6" }
+}

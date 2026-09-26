@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "templateId": "glitter-directory",
+  "version": "0.10.0",
+  "components": {
+    "basic": [
+      { "name": "A", "type": "basic", "description": "Accessible link", "path": "src/index.ts" },
+      { "name": "Article", "type": "basic", "description": "Article landmark", "path": "src/index.ts" },
+      { "name": "Button", "type": "basic", "description": "Button control", "path": "src/index.ts" },
+      { "name": "Div", "type": "basic", "description": "Layout container", "path": "src/index.ts" },
+      { "name": "Footer", "type": "basic", "description": "Footer landmark", "path": "src/index.ts" },
+      { "name": "Form", "type": "basic", "description": "Form element", "path": "src/index.ts" },
+      { "name": "H1", "type": "basic", "description": "Primary heading", "path": "src/index.ts" },
+      { "name": "H2", "type": "basic", "description": "Section heading", "path": "src/index.ts" },
+      { "name": "H3", "type": "basic", "description": "Subheading", "path": "src/index.ts" },
+      { "name": "Header", "type": "basic", "description": "Header landmark", "path": "src/index.ts" },
+      { "name": "Input", "type": "basic", "description": "Input control", "path": "src/index.ts" },
+      { "name": "Label", "type": "basic", "description": "Form label", "path": "src/index.ts" },
+      { "name": "Li", "type": "basic", "description": "List item", "path": "src/index.ts" },
+      { "name": "Main", "type": "basic", "description": "Main landmark", "path": "src/index.ts" },
+      { "name": "Nav", "type": "basic", "description": "Navigation landmark", "path": "src/index.ts" },
+      { "name": "P", "type": "basic", "description": "Paragraph", "path": "src/index.ts" },
+      { "name": "Section", "type": "basic", "description": "Section landmark", "path": "src/index.ts" },
+      { "name": "Span", "type": "basic", "description": "Inline element", "path": "src/index.ts" },
+      { "name": "Time", "type": "basic", "description": "Time element", "path": "src/index.ts" },
+      { "name": "Ul", "type": "basic", "description": "List", "path": "src/index.ts" }
+    ],
+    "composite": [
+      { "name": "DirectoryPagination", "type": "composite", "description": "Bounded exact/inexact directory pagination", "path": "src/components/composite/DirectoryPagination.tsx", "props": { "basePath": { "type": "string" }, "currentPage": { "type": "number" }, "lastPage": { "type": "number", "nullable": true }, "totalIsExact": { "type": "boolean" }, "hasMorePages": { "type": "boolean" }, "category": { "type": "string", "nullable": true }, "search": { "type": "string", "nullable": true }, "view": { "type": "string", "nullable": true }, "sort": { "type": "string", "nullable": true }, "perPage": { "type": "string", "nullable": true }, "paginationLabel": { "type": "string" }, "previousLabel": { "type": "string" }, "nextLabel": { "type": "string" }, "previousAriaLabel": { "type": "string" }, "nextAriaLabel": { "type": "string" } } },
+      { "name": "DirectoryHeader", "type": "composite", "description": "Directory header with G7 theme and account navigation contracts", "path": "src/components/composite/DirectoryHeader.tsx", "props": { "brandName": { "type": "string" }, "browseLabel": { "type": "string" }, "loginLabel": { "type": "string" }, "registerLabel": { "type": "string" }, "accountLabel": { "type": "string" }, "logoutLabel": { "type": "string" }, "adminLabel": { "type": "string" }, "languageLabel": { "type": "string" }, "languageOptionsLabel": { "type": "object" }, "themeLabel": { "type": "string" }, "systemLabel": { "type": "string" }, "lightLabel": { "type": "string" }, "darkLabel": { "type": "string" }, "themeSystemText": { "type": "string" }, "themeLightText": { "type": "string" }, "themeDarkText": { "type": "string" }, "navigationLabel": { "type": "string" }, "nickname": { "type": "string" }, "name": { "type": "string" }, "avatar": { "type": "string" }, "authenticated": { "type": "boolean" }, "isAdmin": { "type": "boolean" } } },
+      { "name": "ListingCard", "type": "composite", "description": "Post listing presentation", "path": "src/components/composite/ListingCard.tsx", "props": { "href": { "type": "string" }, "title": { "type": "string" }, "category": { "type": "string", "nullable": true }, "preview": { "type": "string", "nullable": true }, "date": { "type": "string", "nullable": true }, "thumbnail": { "type": "string", "nullable": true }, "categoryText": { "type": "string" }, "authorName": { "type": "string", "nullable": true }, "isNew": { "type": "boolean" }, "newLabel": { "type": "string" }, "viewCount": { "type": "number", "nullable": true }, "showViewCount": { "type": "boolean" }, "viewCountText": { "type": "string" }, "variant": { "type": "string", "enum": ["grid", "list"], "default": "grid" } } },
+      { "name": "SanitizedContent", "type": "composite", "description": "Safe text or HTML listing content", "path": "src/components/composite/SanitizedContent.tsx" }
+    ],
+    "layout": []
+  }
+}
